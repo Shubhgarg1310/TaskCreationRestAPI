@@ -26,9 +26,18 @@ public class TaskService {
         return taskRepository.findById(id);
     }
 
+    public List<Task> findAll(){
+        List<Task> allTasks = new ArrayList<>();
+        taskRepository.findAll().forEach(allTasks::add);
+        return allTasks;
+    }
+
     public void deleteById(int id){
          taskRepository.deleteById(id);
     }
 
+    public Task update(Task taskToUpdate){
+        return taskRepository.save(taskToUpdate);
+    }
 
 }
